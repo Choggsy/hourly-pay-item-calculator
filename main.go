@@ -16,7 +16,7 @@ func main() {
 	fmt.Print("Enter the item's price:" + pound + "\n")
 	fmt.Scan(&itemPrice) //I think & is used to modify the variable here.
 
-	hours := utils.CalculateWorkHours(hourlyRate, itemPrice)
+	hours := utils.BasicCalculator{}.Calculate(hourlyRate, itemPrice)
 	fmt.Printf("You need to work %.2f hours to afford this item.\n", hours)
 	//%.2f formats the float to 2 decimal places
 }
