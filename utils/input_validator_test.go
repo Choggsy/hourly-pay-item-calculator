@@ -4,13 +4,26 @@ import "testing"
 
 func Test_ValidInputReturnsParsedValue(t *testing.T) {
 	t.Run("successful numeric parse", func(t *testing.T) {
-		// TODO :: e.g. input: "123.45"
+		result, _ := ValidateAndParseFloat("123.45")
+		expected := 123.45
+		if result != expected {
+			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
+		}
 	})
 	t.Run("valid input is trimmed and parsed", func(t *testing.T) {
-		// TODO :: e.g. input: "   99.9  "
+		result, _ := ValidateAndParseFloat("   99.9  ")
+		expected := 99.9
+		if result != expected {
+			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
+		}
 	})
 	t.Run("integer value returns float", func(t *testing.T) {
-		// TODO :: e.g. input: "100"
+		result, _ := ValidateAndParseFloat("100")
+		expected := 100.00
+		if result != expected {
+			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
+		}
+
 	})
 	t.Run("zero return zero", func(t *testing.T) {
 		// TODO :: e.g. input: "0"
