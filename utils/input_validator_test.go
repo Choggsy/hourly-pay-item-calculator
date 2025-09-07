@@ -1,0 +1,46 @@
+package utils
+
+import "testing"
+
+func Test_ValidInputReturnsParsedValue(t *testing.T) {
+	t.Run("successful numeric parse", func(t *testing.T) {
+		// TODO :: e.g. input: "123.45"
+	})
+	t.Run("valid input is trimmed and parsed", func(t *testing.T) {
+		// TODO :: e.g. input: "   99.9  "
+	})
+	t.Run("integer value returns float", func(t *testing.T) {
+		// TODO :: e.g. input: "100"
+	})
+	t.Run("zero return zero", func(t *testing.T) {
+		// TODO :: e.g. input: "0"
+	})
+}
+
+func Test_ReturnsCharacterValidationError(t *testing.T) {
+	t.Run("letter input returns CharacterValidationError", func(t *testing.T) {
+		// TODO :: e.g. input: "12a.3"
+	})
+	t.Run("special character input returns CharacterValidationError", func(t *testing.T) {
+		// TODO :: e.g. input: "12.3$"
+	})
+	t.Run("all non numeric input returns CharacterValidationError", func(t *testing.T) {
+		// TODO :: e.g. input: "..."
+	})
+}
+
+func Test_ReturnsNegativeValueError(t *testing.T) {
+	// TODO :: e.g. input: "-10.0"
+	t.Run("negative input returns NegativeValueError", func(t *testing.T) {
+
+	})
+}
+
+func TestReturnsParseError(t *testing.T) {
+	t.Run("multiple decimal points returns parse error", func(t *testing.T) {
+		// TODO :: e.g. input: "12.3.4"
+	})
+	t.Run("blank value returns parse error", func(t *testing.T) {
+		// TODO :: e.g. input: ""
+	})
+}
