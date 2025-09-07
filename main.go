@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt" //means format, similar to Java’s System.out and Scanner
-	"hourlypay/utils"
+	"hourly-pay-item-calculator/utils"
 )
 
 func main() {
