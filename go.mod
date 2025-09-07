@@ -1,3 +1,3 @@
-module github.com/Choggsy/hourly-pay-item-calculator
+module hourlypay
 
 go 1.25.1
