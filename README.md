@@ -39,3 +39,9 @@ work-cost-calculator/
 │ └── **items.json** # sample data file
 
 └── README.md # Project overview and setup
+
+
+## Getting Started
+
+1. download GO language (https://go.dev/dl/), I have the windows version
+2. For IDE's, my favourite is always Jetbrains IntelliJ IDEA. There is a GO plugin which is what il be using for this project.
