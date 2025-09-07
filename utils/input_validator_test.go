@@ -23,10 +23,13 @@ func Test_ValidInputReturnsParsedValue(t *testing.T) {
 		if result != expected {
 			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
 		}
-
 	})
 	t.Run("zero return zero", func(t *testing.T) {
-		// TODO :: e.g. input: "0"
+		result, _ := ValidateAndParseFloat("0")
+		expected := 0.0
+		if result != expected {
+			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
+		}
 	})
 }
 
