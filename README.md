@@ -46,4 +46,5 @@ work-cost-calculator/
 1. download GO language (https://go.dev/dl/), I have the Windows version
 2. For IDE's, my favourite is always Jetbrains IntelliJ IDEA. There is a GO plugin which is what il be using for this project.
 3. Run go mod init [repository name], this set up declares the project as GO but also acts as the dependency manager like Maven or Gradle in other stacks.
-4. 
+4. Start writing some code and now refer to my debug log!!! 😂
+5. Now for tests starting on extracted logic... ideally I'd write tests first but since im learning the language I won't be attempting TDD today
