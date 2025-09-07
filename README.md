@@ -43,5 +43,7 @@ work-cost-calculator/
 
 ## Getting Started
 
-1. download GO language (https://go.dev/dl/), I have the windows version
+1. download GO language (https://go.dev/dl/), I have the Windows version
 2. For IDE's, my favourite is always Jetbrains IntelliJ IDEA. There is a GO plugin which is what il be using for this project.
+3. Run go mod init [repository name], this set up declares the project as GO but also acts as the dependency manager like Maven or Gradle in other stacks.
+4. 
