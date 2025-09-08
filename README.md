@@ -15,12 +15,3 @@ You enter your hourly wage and the item's price, and it tells you how long you'd
 6. Unit testing is similar enough to Junit. IntelliJ is very helpful to creating test functioning using alt + insert. or ctrl + shift + t to make and locate test files. Not loving how Go structures unit tests in the same package as the unit being tested instead of a separate test package like in java. I have found how to make 'nested' classes in the test file like in java, i like how the test cases for t.run () have more readable names then the test function naming convention
 7. 7. Extracted out common testing logic like `t.Errorf(message,expected,result)` into a live template. 
 8. finished basic CLI tool. now making new requirements for additional features and an improved web front end
-<br> 
-
-
-https://github.com/user-attachments/assets/3bca3a8a-5f34-4e05-8b94-05b26eccd36a
-
-
-<br>
-
-         
