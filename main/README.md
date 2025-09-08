@@ -57,27 +57,28 @@ You enter your hourly wage and the item's price, and it tells you how long you'd
 - [ ] Connect front-end to backend logic
 - [ ] Add monthly income and affordability calculations  
 
-work-cost-calculator/
+hourly-pay-item-calculator/
+├── main/
+│   ├── main.model/
+│   │   └── work_calculator.go
+│   ├── main.model.utils/
+│   │   ├── calculator.go
+│   │   ├── calculator_test.go
+│   │   ├── input_validator.go
+│   │   └── input_validator_test.go
+│   ├── web/
+│   │   ├── handlers.go         # HTTP handlers for form processing
+│   │   ├── templates/
+│   │   │   └── form.html       # HTML form for user input
+│   │   └── web.go              # Web server entry point
+│   ├── main.go                 # CLI entry point
+│   ├── go.mod
+│   ├── README.md
+│   ├── debug-log.md
+│   └── live-template-log.md
+├── assets/
+│   └── img.png
 
-├── main.go # Entry point of the CLI app 
-
-├── **go.mod** # Go module definition
-
-├── **go.sum** # Go dependencies checksum
-
-├── /models # Structs and data models 
-
-│ └── **item.go** # Item struct (price, name, etc.) 
-
-├── /utils # Helper functions 
-
-│ └── **calculator.go** # Core logic for calculating work hours 
-
-├── _/data # Optional:_ store saved items like user hourly rate or configs 
-
-│ └── **items.json** # sample data file
-
-└── README.md # Project overview and setup
 
 
 ## Development Log
