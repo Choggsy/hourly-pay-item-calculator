@@ -35,42 +35,49 @@ func Test_ValidInputReturnsParsedValue(t *testing.T) {
 
 func Test_ReturnsCharacterValidationError(t *testing.T) {
 	t.Run("letter input returns character validation error", func(t *testing.T) {
-		result, err := ValidateAndParseFloat("12a.3")
-		expected := 0.0
-		if result != expected {
-			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
-		}
+		_, err := ValidateAndParseFloat("12a.3")
 		if err == nil || err.Error() != "invalid input: only numeric values are allowed" {
 			t.Errorf("Expected character validation error: %v", err)
 		}
 	})
 	t.Run("special character input returns CharacterValidationError", func(t *testing.T) {
-		result, err := ValidateAndParseFloat("12.3$")
-		expected := 0.0
-		if result != expected {
-			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
-		}
+		_, err := ValidateAndParseFloat("12.3$")
 		if err == nil || err.Error() != "invalid input: only numeric values are allowed" {
 			t.Errorf("Expected character validation error: %v", err)
 		}
 	})
-	t.Run("all non numeric input returns CharacterValidationError", func(t *testing.T) {
-		// TODO :: e.g. input: "..."
-	})
 }
 
 func Test_ReturnsNegativeValueError(t *testing.T) {
-	// TODO :: e.g. input: "-10.0"
 	t.Run("negative input returns NegativeValueError", func(t *testing.T) {
-
+		_, err := ValidateAndParseFloat("-10.0")
+		if err == nil || err.Error() != "negative values are not allowed: please enter a valid numeric value" {
+			t.Errorf("Expected error: %v", err)
+		}
 	})
 }
 
 func TestReturnsParseError(t *testing.T) {
 	t.Run("multiple decimal points returns parse error", func(t *testing.T) {
-		// TODO :: e.g. input: "12.3.4"
+		_, err := ValidateAndParseFloat("12.3.4")
+		if err == nil || err.Error() != "failed to parse number: please enter a valid numeric value" {
+			t.Errorf("Expected error: %v", err)
+		}
+	})
+	t.Run("all non numeric input returns parse validation error", func(t *testing.T) {
+		result, err := ValidateAndParseFloat("...")
+		expected := 0.0
+		if result != expected {
+			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
+		}
+		if err == nil || err.Error() != "failed to parse number: please enter a valid numeric value" {
+			t.Errorf("Expected error: %v", err)
+		}
 	})
 	t.Run("blank value returns parse error", func(t *testing.T) {
-		// TODO :: e.g. input: ""
+		_, err := ValidateAndParseFloat("")
+		if err == nil || err.Error() != "failed to parse number: please enter a valid numeric value" {
+			t.Errorf("Expected error: %v", err)
+		}
 	})
 }

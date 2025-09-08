@@ -49,7 +49,7 @@ func validateParseSuccess(err error) error {
 // validateNonNegativeValue ensures the parsed float is not negative.
 func validateNonNegativeValue(value float64) error {
 	if value < 0.0 {
-		return errors.New("negative values are not allowed")
+		return errors.New("negative values are not allowed: please enter a valid numeric value")
 	}
 	return nil
 }
