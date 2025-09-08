@@ -1,4 +1,4 @@
-package model
+package calculator
 
 type WorkCalculator interface {
 	Calculate(hourlyRate, itemPrice float64) float64

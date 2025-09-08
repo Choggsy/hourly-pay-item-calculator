@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt" //means format, similar to Java’s System.out and Scanner
-	"hourly-pay-item-calculator/utils"
+	"hourly-pay-item-calculator/internal/calculator"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 	fmt.Print("Enter the item's price:" + pound + "\n")
 	fmt.Scan(&itemPrice) // & is used to modify the variable here.
 
-	hours := utils.BasicCalculator{}.Calculate(hourlyRate, itemPrice)
+	hours := calculator.BasicCalculator{}.Calculate(hourlyRate, itemPrice)
 	fmt.Printf("You need to work %.2f hours to afford this item.\n", hours)
 	//%.2f formats the float to 2 decimal places
 }

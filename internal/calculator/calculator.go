@@ -1,4 +1,4 @@
-package utils
+package calculator
 
 type BasicCalculator struct{}
 

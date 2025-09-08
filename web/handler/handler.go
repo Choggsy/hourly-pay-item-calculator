@@ -1,9 +1,9 @@
-package web
+package handler
 
 import (
 	"fmt"
-	"hourly-pay-item-calculator/model"
-	"hourly-pay-item-calculator/utils"
+	"hourly-pay-item-calculator/internal/model"
+	"hourly-pay-item-calculator/internal/validator"
 	"html/template"
 	"net/http"
 	"os"
@@ -18,8 +18,8 @@ func WebHandler(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == http.MethodPost {
 		r.ParseForm()
-		hourlyRate, err1 := utils.ValidateAndParseFloat(r.FormValue("hourlyRate"))
-		itemPrice, err2 := utils.ValidateAndParseFloat(r.FormValue("itemPrice"))
+		hourlyRate, err1 := validator.ValidateAndParseFloat(r.FormValue("hourlyRate"))
+		itemPrice, err2 := validator.ValidateAndParseFloat(r.FormValue("itemPrice"))
 
 		DataStructureErrorHandler(err1, err2, &data, itemPrice, hourlyRate)
 	}

@@ -1,15 +1,16 @@
-package web
+package main
 
 import (
+	"hourly-pay-item-calculator/web/handler"
 	"log"
 	"net/http"
 )
 
 const server = ":8080"
 
-// WebEntry Web server entry point
-func WebEntry() {
-	http.HandleFunc("/", WebHandler)
+// main Web server entry point
+func main() {
+	http.HandleFunc("/", handler.WebHandler)
 	http.ListenAndServe(server, nil)
 
 	ErrorHandler()
