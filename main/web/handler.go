@@ -1,33 +1,42 @@
 package web
 
 import (
+	"fmt"
+	"hourly-pay-item-calculator/model"
 	"hourly-pay-item-calculator/utils"
 	"html/template"
 	"net/http"
+	"os"
 	"path/filepath"
 )
 
-// WebHandler HTTP handlers for form processing
 func WebHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles(filepath.Join(
-		"main",
-		"web",
-		"templates",
-		"form.html",
-	)))
+	wd, _ := os.Getwd()
+	tmplPath := filepath.Join(wd, "main", "web", "templates", "form.html")
+	tmpl := template.Must(template.ParseFiles(tmplPath))
+	data := model.ResultData{}
 
-	if r.Method == http.MethodGet {
-		tmpl.Execute(w, nil)
-		return
+	if r.Method == http.MethodPost {
+		r.ParseForm()
+		hourlyRate, err1 := utils.ValidateAndParseFloat(r.FormValue("hourlyRate"))
+		itemPrice, err2 := utils.ValidateAndParseFloat(r.FormValue("itemPrice"))
+
+		DataStructureErrorHandler(err1, err2, &data, itemPrice, hourlyRate)
 	}
 
-	r.ParseForm()
-	hourlyRate, err1 := utils.ValidateAndParseFloat(r.FormValue("hourlyRate"))
-	itemPrice, err2 := utils.ValidateAndParseFloat(r.FormValue("itemPrice"))
+	tmpl.Execute(w, data)
+}
 
+func DataStructureErrorHandler(
+	err1 error,
+	err2 error,
+	data *model.ResultData,
+	itemPrice float64,
+	hourlyRate float64,
+) {
 	if err1 != nil || err2 != nil {
-		tmpl.Execute(w, map[string]string{"Error": "Invalid input"})
-		return
+		data.Error = fmt.Sprintf("Hourly rate error: %v | Item price error: %v", err1, err2)
+	} else {
+		data.Hours = itemPrice / hourlyRate
 	}
-	tmpl.Execute(w, map[string]float64{"Hours": itemPrice / hourlyRate})
 }
