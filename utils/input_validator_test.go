@@ -34,11 +34,25 @@ func Test_ValidInputReturnsParsedValue(t *testing.T) {
 }
 
 func Test_ReturnsCharacterValidationError(t *testing.T) {
-	t.Run("letter input returns CharacterValidationError", func(t *testing.T) {
-		// TODO :: e.g. input: "12a.3"
+	t.Run("letter input returns character validation error", func(t *testing.T) {
+		result, err := ValidateAndParseFloat("12a.3")
+		expected := 0.0
+		if result != expected {
+			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
+		}
+		if err == nil || err.Error() != "invalid input: only numeric values are allowed" {
+			t.Errorf("Expected character validation error: %v", err)
+		}
 	})
 	t.Run("special character input returns CharacterValidationError", func(t *testing.T) {
-		// TODO :: e.g. input: "12.3$"
+		result, err := ValidateAndParseFloat("12.3$")
+		expected := 0.0
+		if result != expected {
+			t.Errorf("Test failed, expected: %v, got: %v", expected, result)
+		}
+		if err == nil || err.Error() != "invalid input: only numeric values are allowed" {
+			t.Errorf("Expected character validation error: %v", err)
+		}
 	})
 	t.Run("all non numeric input returns CharacterValidationError", func(t *testing.T) {
 		// TODO :: e.g. input: "..."
