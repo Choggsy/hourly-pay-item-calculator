@@ -2,8 +2,8 @@ package handler
 
 import (
 	"fmt"
-	"hourly-pay-item-calculator/internal/model"
-	"hourly-pay-item-calculator/internal/validator"
+	"hourly-pay-item-calculator/utils/model"
+	"hourly-pay-item-calculator/utils/validator"
 	"html/template"
 	"net/http"
 	"os"
