@@ -16,6 +16,9 @@ You enter your hourly wage and the item's price, and it tells you how long you'd
 7. 7. Extracted out common testing logic like `t.Errorf(message,expected,result)` into a live template. 
 8. finished basic CLI tool. now making new requirements for additional features and an improved web front end
 9. Started the web interface and more complex data structures / logic in go 
-10. After finishing some very basic web set i've been advised to use docker.... and despite my best efforts to avoid it!!! its now time i actually try setting it up and learning docker containers, I think this will bed very useful for future projects so its worth putting in the time now 
+10. After finishing some very basic web set i've been advised to use docker.... and despite my best efforts to avoid it!!! its now time i actually try setting it up and learning docker containers, I think this will bed very useful for future projects so its worth putting in the time now
+11. ayo docker....
+12. After running web front end, launch server 8080 in the browser: http://localhost:8080
         
+https://github.com/user-attachments/assets/a6a9ce2a-239e-4c19-84bc-80458b4415db
 
