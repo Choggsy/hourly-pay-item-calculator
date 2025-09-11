@@ -24,6 +24,11 @@ You enter your hourly wage and the item's price, and it tells you how long you'd
         
 https://github.com/user-attachments/assets/a6a9ce2a-239e-4c19-84bc-80458b4415db
 
+
+
+https://github.com/user-attachments/assets/001e8e8c-5511-4434-ae70-9b5e72137419
+
+
                
 ## Docker
 1. Rebuild the Docker Image `docker build --no-cache -t hourly-pay-calculator .`
