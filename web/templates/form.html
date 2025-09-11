@@ -17,6 +17,15 @@
     <input type="text" id="itemPrice" name="itemPrice" required>
 
     <input type="submit" value="Calculate">
+
+    {{if .Error}}
+    <p style="color:red">{{.Error}}</p>
+    {{end}}
+
+    {{if .Hours}}
+    <p>You need to work {{printf "%.2f" .Hours}} hours to afford this item.</p>
+    {{end}}
+
 </form>
 </body>
 </html>
