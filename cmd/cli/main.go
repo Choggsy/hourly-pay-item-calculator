@@ -17,5 +17,4 @@ func main() {
 
 	hours := calculator.BasicCalculator{}.Calculate(hourlyRate, itemPrice)
 	fmt.Printf("You need to work %.2f hours to afford this item.\n", hours)
-	//%.2f formats the float to 2 decimal places
 }

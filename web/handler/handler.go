@@ -14,7 +14,7 @@ func WebHandler(w http.ResponseWriter, r *http.Request) {
 	wd, _ := os.Getwd()
 	tmplPath := filepath.Join(wd, "main", "web", "templates", "form.html")
 	tmpl := template.Must(template.ParseFiles(tmplPath))
-	data := model.ResultData{}
+	data := model.ResultData()
 
 	if r.Method == http.MethodPost {
 		r.ParseForm()
