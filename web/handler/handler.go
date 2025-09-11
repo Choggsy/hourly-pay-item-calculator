@@ -11,9 +11,7 @@ import (
 )
 
 func WebHandler(w http.ResponseWriter, r *http.Request) {
-	wd, _ := os.Getwd()
-	tmplPath := filepath.Join(wd, "web", "templates", "form.html")
-	tmpl := template.Must(template.ParseFiles(tmplPath))
+	wd, _ := os.Getwd() //Gets the current working directory
 	data := model.ResultData{}
 
 	if r.Method == http.MethodPost {
@@ -24,7 +22,7 @@ func WebHandler(w http.ResponseWriter, r *http.Request) {
 		DataStructureErrorHandler(err1, err2, &data, itemPrice, hourlyRate)
 	}
 
-	tmpl.Execute(w, data)
+	template.Must(template.ParseFiles(filepath.Join(wd, "web", "templates", "form.html"))).Execute(w, data)
 }
 
 func DataStructureErrorHandler(

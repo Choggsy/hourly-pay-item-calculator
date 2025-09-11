@@ -1,0 +1,18 @@
+# IDE and editor settings
+.idea/
+.vscode/
+
+# OS-specific files
+*.DS_Store
+Thumbs.db
+
+# Docs and logs
+*.md
+*.log
+
+# Assets not needed in container
+assets/
+
+# Git
+.git/
+.gitignore
