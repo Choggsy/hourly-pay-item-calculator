@@ -17,8 +17,14 @@ You enter your hourly wage and the item's price, and it tells you how long you'd
 8. finished basic CLI tool. now making new requirements for additional features and an improved web front end
 9. Started the web interface and more complex data structures / logic in go 
 10. After finishing some very basic web set i've been advised to use docker.... and despite my best efforts to avoid it!!! its now time i actually try setting it up and learning docker containers, I think this will bed very useful for future projects so its worth putting in the time now
-11. ayo docker....
-12. After running web front end, launch server 8080 in the browser: http://localhost:8080
+11. I generated sub par docker files using an AI tool, I then asked the AI to explain what is happening in the file line by line. I prefer this learning technique to prove it works before investing learning on the inner machanics and what each part is doing. After doing this a few times I will begin to write and test by myself until i know something fully.
+12. built the docker image locally with docker build -t hourly-pay-calculator .  : but i kept getting error that the terminal cant find /go.sum . This is because Go only creates go.sum when you have dependencies that need checksums, but so far my project is internal so go.sum won’t exist
+13. 
+14. After running web front end, launch server 8080 in the browser: http://localhost:8080
         
 https://github.com/user-attachments/assets/a6a9ce2a-239e-4c19-84bc-80458b4415db
 
+               
+## Docker
+1. Rebuild the Docker Image `docker build --no-cache -t hourly-pay-calculator .`
+2. Run the container `docker run -p 8080:8080 hourly-pay-calculator`

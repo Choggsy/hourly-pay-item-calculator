@@ -1,5 +1,5 @@
-# Stage 1: Build the Go binary
-FROM golang:1.21 AS builder
+# Stage 1: Build the Go binary, matches my Go.Mod file version
+FROM golang:1.25 AS builder
 
 # Set working directory inside container
 WORKDIR /app
@@ -12,7 +12,7 @@ RUN go mod download
 COPY . .
 
 # Build the Go app (targeting your web entry point)
-RUN go build -o hourly-pay-item-calculator ./cmd/web
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/hourly-pay-item-calculator ./cmd/web
 
 # Stage 2: Create a lightweight container
 FROM alpine:latest
@@ -20,11 +20,12 @@ FROM alpine:latest
 # Set working directory in final container
 WORKDIR /app
 
-# Copy the compiled binary from builder stage
+# Copy the compiled binary
 COPY --from=builder /app/hourly-pay-item-calculator .
 
-# Expose port 8080 to the host
+# Copy the HTML template
+COPY --from=builder /app/web/templates /app/web/templates
+
 EXPOSE 8080
 
-# Run the binary
-CMD ["./hourly-pay-item-calculator"]
+CMD ["/app/hourly-pay-item-calculator"]
